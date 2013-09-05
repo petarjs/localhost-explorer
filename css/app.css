@@ -51,7 +51,6 @@ tr {background:#e9e9e9!important;}
 .favorite{margin-right:.5em;opacity:.7;-webkit-transform:all 300ms ease-out}
 .favorite:hover{text-shadow:0 0 5px yellow;opacity:1;}
 .faved{color:yellow;text-shadow:0 0 3px yellow;opacity:1;}
-.c_entry{background:lime!important}
 
 .links {font-size:1.6em; margin:1em .5em ;}
 .links a{color:#9f9f9f!important;}
@@ -67,7 +66,7 @@ td{padding:0!important;border-right:1px solid #efefef;white-space: nowrap;}
 .entry:hover{background:#a0d468;}
 .entry{cursor:pointer;background:#8cc152;color:#fff!important;}
 .entry a { color:#eaeaea}
-.entry.path{padding:1em;font-family:'open_sans';color:#ddd!important;border-bottom:1px solid #e9e9e9}
+.entry.path{padding:1em .5em;font-family:'open_sans';color:#ddd!important;border-bottom:1px solid #e9e9e9}
 
 
 .level-enter,
