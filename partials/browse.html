@@ -15,13 +15,13 @@
 				 ng-animate="'level'"
 				 ng-class="{c_entry: c_entry==entry}">
 				<div ng-switch='entry.type' class="">
-					<div ng-switch-when='file' class='file'>
+					<a ng-href='../../{{entry.path}}' target="_blank" ng-switch-when='file' class='file'>
 						<i class='icon-star favorite'
 								ng-class="{faved: entry.faved}"
 								ng-click='toggleFav(entry)'>
 								</i>
-						<a ng-href='../../{{entry.path}}' target="_blank">{{entry.name}}</a>
-					</div>
+						{{entry.name}}
+					</a>
 					<div ng-switch-when='dir' class='dir'
 						 ng-class="{selected: entry.selected}"
 						 ng-click='open($parent.$parent.$index, entry)'>
