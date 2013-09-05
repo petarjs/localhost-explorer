@@ -11,8 +11,7 @@
 			<div ng-show='!level.entries.length'>
 				Nothing to see here.
 			</div>
-			<div ng-repeat='entry in level.entries | filter: {name: search}' class='entry' 
-				 ng-hide='!entry.faved&&view=="f"'
+			<div ng-repeat='entry in level.entries | filter: {name: search, faved: view=="f"}' class='entry' 
 				 ng-animate="'level'"
 				 ng-class="{c_entry: c_entry==entry}">
 				<div ng-switch='entry.type' class="">
