@@ -7,6 +7,10 @@ angular.module('lhe.controllers', []).controller('BrowseCtrl', ['$scope', '$http
 		return ls.get('lheFavs');
 	};
 	
+	$scope.saveFavs = function() {
+		ls.set('lheFavs', $scope.favs);
+	};
+	
 	$scope.setFavsToEntries = function() {
 		_.each($scope.levels, function(lvl){
 			_.each(lvl.entries, function(entry){
@@ -15,10 +19,6 @@ angular.module('lhe.controllers', []).controller('BrowseCtrl', ['$scope', '$http
 				}
 			});
 		});
-	};
-	
-	$scope.saveFavs = function() {
-		ls.set('lheFavs', $scope.favs);
 	};
 	
 	$scope.getFirstLevel = function() {
@@ -71,13 +71,26 @@ angular.module('lhe.controllers', []).controller('BrowseCtrl', ['$scope', '$http
 			_.each(level.entries, function(el){el.faved=false;$scope.favs = _.without($scope.favs, el.path);});
 		} else {
 			_.each(level.entries, function(el){el.faved=true;$scope.favs.push(el.path);});
+			$scope.favs = _.uniq($scope.favs);
 		}
 		$scope.saveFavs();
+	};
+	
+	// Check if some faved stuff doesn't exist
+	// If that's the case, just remove them from favs.
+	$scope.checkFavs = function() {
+		$http.post('includes/checkFavs.php', $scope.favs)
+			 .success(function(data){
+			 	$scope.favs = _.without($scope.favs, data);
+			 	$scope.saveFavs();
+			 });
 	};
 	
 	$rootScope.view = 'b';
 	$scope.levels = [];
 	$scope.favs = $scope.getFavs() || [];
 	$scope.getFirstLevel();
+	
+	$scope.checkFavs();
 
 }]); 
