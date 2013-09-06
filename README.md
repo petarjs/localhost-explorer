@@ -1,7 +1,7 @@
 localhost-explorer
 ==================
 
-Localhost Explrer is a Web app that helps you to browse files on your localhost.
+Localhost Explorer is a Web app that helps you to browse files on your localhost.
 
 Why I made it
 ==================
