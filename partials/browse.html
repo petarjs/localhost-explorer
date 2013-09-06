@@ -2,8 +2,8 @@
 	<tr>
 		<td ng-repeat='level in levels'>
 			<div class="entry path">
-				{{level.entries[0].path.replace(level.entries[0].name,'')}}
-				<i class='icon-star right favorite'
+				<span>{{level.entries[0].path.replace(level.entries[0].name,'')}}</span>
+				<i class='icon-star favorite'
 					ng-class="{faved: pathFaved(level.entries[0].path.replace(level.entries[0].name,''))}"
 					ng-click='togglePathFav(level)'>
 					</i>
