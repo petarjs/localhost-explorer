@@ -54,8 +54,10 @@ angular.module('lhe.controllers', []).controller('BrowseCtrl', ['$scope', '$http
 	
 	$scope.pathFaved = function(path) {
 		var level = _.find($scope.levels, function(lvl) {
+			if(!lvl || !lvl.entries[0]) {return false;}
 			return lvl.entries[0].path.replace(lvl.entries[0].name,'')===path;
 		});
+		if(!level) return null;
 		return _.every(level.entries, function(el){return el.faved;});
 	};
 	
@@ -84,6 +86,12 @@ angular.module('lhe.controllers', []).controller('BrowseCtrl', ['$scope', '$http
 			 	$scope.favs = _.without($scope.favs, data);
 			 	$scope.saveFavs();
 			 });
+	};
+	
+	$scope.getFolderFromPath = function(path) {
+		if(!path) return '';
+		var folders = path.split('/');
+		return folders[folders.length-2]+'/';
 	};
 	
 	$rootScope.view = 'b';

@@ -1,38 +1,42 @@
-<table scroll>
-	<tr>
-		<td ng-repeat='level in levels'>
-			<div class="entry path">
-				<span>{{level.entries[0].path.replace(level.entries[0].name,'')}}</span>
-				<i class='icon-star favorite'
-					ng-class="{faved: pathFaved(level.entries[0].path.replace(level.entries[0].name,''))}"
-					ng-click='togglePathFav(level)'>
-					</i>
-			</div>
-			<div ng-show='!level.entries.length'>
-				Nothing to see here.
-			</div>
-			<div ng-repeat='entry in level.entries | filter: {name: search, faved: view=="f"}' class='entry' 
-				 ng-animate="'level'"
-				 ng-class="{c_entry: c_entry==entry}">
-				<div ng-switch='entry.type' class="">
-					<a ng-href='../../{{entry.path}}' target="_blank" ng-switch-when='file' class='file'>
+<div class='outera'>
+	<div class='innera'>
+		<table>
+			<tr>
+				<td ng-repeat='level in levels'>
+					<div class="entry path">
+						<span>{{getFolderFromPath(level.entries[0].path)}}</span>
 						<i class='icon-star favorite'
-								ng-class="{faved: entry.faved}"
-								ng-click='toggleFav(entry)'>
-								</i>
-						{{entry.name}}
-					</a>
-					<div ng-switch-when='dir' class='dir'
-						 ng-class="{selected: entry.selected}"
-						 ng-click='open($parent.$parent.$index, entry)'>
-						<i class='icon-star favorite'
-								ng-class="{faved: entry.faved}"
-								ng-click='toggleFav(entry)'>
-								</i>
-						<span>{{entry.name}}</span><i class="icon-caret-right right"></i>
+							ng-class="{faved: pathFaved(level.entries[0].path.replace(level.entries[0].name,''))}"
+							ng-click='togglePathFav(level)'>
+							</i>
 					</div>
-				</div>
-			</div>
-		</td>
-	</tr>
-</table>
+					<div ng-show='!level.entries.length' class='entry path'>
+						Nothing to see here.
+					</div>
+					<div ng-repeat='entry in level.entries | filter: {name: search, faved: view=="f"}' class='entry' 
+						 ng-animate="'level'"
+						 ng-class="{c_entry: c_entry==entry}">
+						<div ng-switch='entry.type' class="">
+							<a ng-href='../../{{entry.path}}' target="_blank" ng-switch-when='file' class='file'>
+								<i class='icon-star favorite'
+										ng-class="{faved: entry.faved}"
+										ng-click='toggleFav(entry)'>
+										</i>
+								{{entry.name}}
+							</a>
+							<div ng-switch-when='dir' class='dir'
+								 ng-class="{selected: entry.selected}"
+								 ng-click='open($parent.$parent.$index, entry)'>
+								<i class='icon-star favorite'
+										ng-class="{faved: entry.faved}"
+										ng-click='toggleFav(entry)'>
+										</i>
+								<span>{{entry.name}}</span><i class="icon-caret-right right"></i>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
