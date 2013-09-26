@@ -58,7 +58,7 @@ tr {background:#e9e9e9!important;}
 .links i{margin-right:.5em;color:#9f9f9f!important;}
 .links h3 {color:#9f9f9f!important;font-weight: normal;font-family: 'open_sans_light';margin:.5em 0}
 .links h3 span {font-family: 'open_sans';color:#f6bb42}
-.links input {width:50%;display:inline-block;font-size:.6em;margin:0 0 0 1em;padding:.5em 0 .5em .8em;height:auto;border-radius:40px;}
+.links input {width:16em;display:inline-block;font-size:.6em;margin:0 0 0 1em;padding:.5em 0 .5em .8em;height:auto;border-radius:40px;}
 
 .level{}
 table{border-spacing:0;border-collapse:collapse;}
@@ -70,6 +70,7 @@ td{padding:0!important;border-right:1px solid #efefef;white-space: nowrap;}
 .entry a { color:#eaeaea}
 .entry.path{padding:1em .5em;font-family:'open_sans';color:#ddd!important;border-bottom:1px solid #e9e9e9}
 
+.box{display:inline-block;height:.5em;width:.5em;}
 
 .level-enter,
 .level-leave,
