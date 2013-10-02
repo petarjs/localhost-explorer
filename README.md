@@ -29,9 +29,9 @@ Additional notes
 =================
 - This app was made using Angularjs and Foundation CSS Framework.
 - Tested in Chrome (Works fine), IE10 (Some bugs with CSS)
-- If you are using WAMP change your `www/index.php` to something like
+- If you are using WAMP you already have My Projects on localhost :D
 
-'
+
 
 	$uri .= $_SERVER['HTTP_HOST'];
 	header('Location: '.$uri.'/localhost-explorer/');
