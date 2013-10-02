@@ -55,6 +55,7 @@ tr {background:#e9e9e9!important;}
 
 .links {font-size:1.6em; margin:1em .5em ;}
 .links a{color:#9f9f9f!important;}
+.links a:hover {text-decoration: underline; color:#F6BB42!important;}
 .links i{margin-right:.5em;color:#9f9f9f!important;}
 .links h3 {color:#9f9f9f!important;font-weight: normal;font-family: 'open_sans_light';margin:.5em 0}
 .links h3 span {font-family: 'open_sans';color:#f6bb42}
