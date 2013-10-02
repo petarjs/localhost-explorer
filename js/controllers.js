@@ -39,6 +39,10 @@ angular.module('lhe.controllers', []).controller('BrowseCtrl', ['$scope', '$http
 				$scope.setFavsToEntries();
 			 });
 	};
+	
+	$scope.goTo = function (entry) {
+		// TODO open entry.path in new tab
+	};
 
 	$scope.toggleFav = function(entry){
 		if(entry.faved){ 
