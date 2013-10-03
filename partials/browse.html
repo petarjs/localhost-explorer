@@ -9,7 +9,7 @@
 					<div ng-show='!level.entries.length' class='entry path'>
 						Nothing to see here.
 					</div>
-					<div ng-repeat='entry in level.entries | filter: {name: search, faved: view=="f"}' class='entry' 
+					<div ng-repeat='entry in level.entries | filter: {faved: view=="f"} | firstLevelName: search' class='entry' 
 						 ng-animate="'level'"
 						 ng-class="{c_entry: c_entry==entry}">
 						<div ng-switch='entry.type' class="">
