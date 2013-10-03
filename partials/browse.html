@@ -5,10 +5,6 @@
 				<td ng-repeat='level in levels'>
 					<div class="entry path">
 						<span>{{getFolderFromPath(level.entries[0].path)}}</span>
-						<i class='icon-star favorite'
-							ng-class="{faved: pathFaved(level.entries[0].path.replace(level.entries[0].name,''))}"
-							ng-click='togglePathFav(level)'>
-							</i>
 					</div>
 					<div ng-show='!level.entries.length' class='entry path'>
 						Nothing to see here.
@@ -17,8 +13,10 @@
 						 ng-animate="'level'"
 						 ng-class="{c_entry: c_entry==entry}">
 						<div ng-switch='entry.type' class="">
-							<a ng-href='../../{{entry.path}}' target="_blank" ng-switch-when='file' class='file'>
+							<a ng-href='../../{{entry.path}}' target="_blank" 
+								ng-switch-when='file' class='file'>
 								<i class='icon-star favorite'
+										ng-if="$parent.$parent.$index==0"
 										ng-class="{faved: entry.faved}"
 										ng-click='toggleFav(entry)'>
 										</i>
@@ -29,9 +27,10 @@
 								 ng-click='open($parent.$parent.$index, entry)'
 								 ng-dblclick='goTo(entry)'>
 								<i class='icon-star favorite'
-										ng-class="{faved: entry.faved}"
-										ng-click='toggleFav(entry)'>
-										</i>
+									ng-if="$parent.$parent.$index==0"
+									ng-class="{faved: entry.faved}"
+									ng-click='toggleFav(entry)'>
+									</i>
 								<span>{{entry.name}}</span><i class="icon-caret-right right box"></i>
 							</div>
 						</div>
